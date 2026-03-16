@@ -3,7 +3,7 @@ import { Quote } from "lucide-react"
 export function TestimonialsSection() {
   const testimonials = [
     {
-      quote: "Insight Travels has been our trusted travel partner for over a decade. Their attention to detail and 24/7 support has made managing our corporate travel seamless.",
+      quote: "Insight Travels has been our trusted travel partner for over a decade. Their attention to detail and dedicated support has made managing our corporate travel seamless.",
       author: "Rajesh Kumar",
       role: "CFO",
       company: "Tech Solutions Ltd."

@@ -10,7 +10,7 @@ export function ServicesSection() {
       title: "Global Medical Evacuation & Repatriation",
       description: "Comprehensive medical evacuation services coordinated with healthcare professionals and insurance providers. We ensure safe, timely medical transport for employees anywhere in the world.",
       features: [
-        "24/7 Emergency Response",
+        "Rapid Emergency Response",
         "Coordination with Doctors",
         "Insurance Company Liaison",
         "Worldwide Coverage"

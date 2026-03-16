@@ -100,8 +100,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-card/80 shrink-0" />
-                <a href="mailto:info@insighttravels.com" className="text-card/70 hover:text-card transition-colors text-sm">
-                  info@insighttravels.com
+                <a href="mailto:insighttravels95@gmail.com" className="text-card/70 hover:text-card transition-colors text-sm">
+                  insighttravels95@gmail.com
                 </a>
               </li>
             </ul>
