@@ -21,7 +21,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-card">
+    <section id="contact" className="py-16 lg:py-20 bg-card">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -74,8 +74,8 @@ export function ContactSection() {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
                   <p className="text-muted-foreground">
-                    <a href="mailto:info@insighttravels.com" className="hover:text-accent transition-colors">
-                      info@insighttravels.com
+                    <a href="mailto:insighttravels95@gmail.com" className="hover:text-accent transition-colors">
+                      insighttravels95@gmail.com
                     </a>
                   </p>
                 </div>
@@ -89,8 +89,7 @@ export function ContactSection() {
                   <h4 className="font-semibold text-foreground mb-1">Business Hours</h4>
                   <p className="text-muted-foreground">
                     Monday - Friday: 9:00 AM - 6:00 PM<br />
-                    Saturday: 10:00 AM - 2:00 PM<br />
-                    <span className="text-accent font-medium">24/7 Emergency Support Available</span>
+                    Saturday: 10:00 AM - 2:00 PM
                   </p>
                 </div>
               </div>

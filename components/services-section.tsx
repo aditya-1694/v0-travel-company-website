@@ -10,7 +10,7 @@ export function ServicesSection() {
       title: "Global Medical Evacuation & Repatriation",
       description: "Comprehensive medical evacuation services coordinated with healthcare professionals and insurance providers. We ensure safe, timely medical transport for employees anywhere in the world.",
       features: [
-        "24/7 Emergency Response",
+        "Rapid Emergency Response",
         "Coordination with Doctors",
         "Insurance Company Liaison",
         "Worldwide Coverage"
@@ -43,7 +43,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-card">
+    <section id="services" className="py-16 lg:py-20 bg-card">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

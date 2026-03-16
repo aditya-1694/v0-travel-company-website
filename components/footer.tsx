@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
@@ -15,7 +16,6 @@ export function Footer() {
       { name: "Medical Evacuation", href: "#services" },
       { name: "Corporate Travel", href: "#services" },
       { name: "MICE & Events", href: "#services" },
-      { name: "24/7 Support", href: "#contact" },
     ],
   }
 
@@ -25,14 +25,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-12 w-12 rounded-lg bg-card/10 border border-dashed border-card/30 flex items-center justify-center">
-                <span className="text-xs text-card/60 font-medium">LOGO</span>
-              </div>
-              <div>
-                <p className="text-lg font-semibold text-card leading-tight">Insight Travels</p>
-                <p className="text-xs text-card/60">& Tours</p>
-              </div>
+            <div className="mb-6">
+              <Image 
+                src="/images/insight-logo.png" 
+                alt="Insight Travels and Tours" 
+                width={180} 
+                height={60}
+                className="h-14 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-card/70 mb-6">
               Your trusted partner in corporate travel management since 1994. 
@@ -86,22 +86,22 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-card uppercase tracking-wider mb-6">Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                <MapPin className="h-5 w-5 text-card/80 shrink-0 mt-0.5" />
                 <span className="text-card/70 text-sm">
                   S-06, 2nd Floor, Triveni Complex<br />
                   Sheikh Sarai Phase-1, New Delhi 110 017
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-accent shrink-0" />
+                <Phone className="h-5 w-5 text-card/80 shrink-0" />
                 <a href="tel:+911140154725" className="text-card/70 hover:text-card transition-colors text-sm">
                   +91-11-40154725
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-accent shrink-0" />
-                <a href="mailto:info@insighttravels.com" className="text-card/70 hover:text-card transition-colors text-sm">
-                  info@insighttravels.com
+                <Mail className="h-5 w-5 text-card/80 shrink-0" />
+                <a href="mailto:insighttravels95@gmail.com" className="text-card/70 hover:text-card transition-colors text-sm">
+                  insighttravels95@gmail.com
                 </a>
               </li>
             </ul>

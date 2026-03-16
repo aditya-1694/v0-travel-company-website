@@ -25,7 +25,7 @@ export function AboutSection() {
   ]
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-background">
+    <section id="about" className="py-16 lg:py-20 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
