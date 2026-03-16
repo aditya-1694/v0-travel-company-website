@@ -1,12 +1,21 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Award, Clock } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-      {/* Background Image Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary/95" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src="/images/hero-travel.jpg"
+        alt="Corporate travel"
+        fill
+        className="object-cover"
+        priority
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90" />
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
