@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Award, Clock } from "lucide-react"
+import { ArrowRight, Shield, Award } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -51,7 +51,7 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 h-14 text-base" asChild>
+            <Button size="lg" className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 h-14 text-base" asChild>
               <Link href="#services">
                 Explore Services
               </Link>
@@ -59,7 +59,7 @@ export function HeroSection() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <div className="flex flex-col items-center gap-2 p-4">
               <Award className="h-8 w-8 text-primary-foreground/80" />
               <span className="text-2xl font-bold text-primary-foreground">30+</span>
@@ -69,11 +69,6 @@ export function HeroSection() {
               <Shield className="h-8 w-8 text-primary-foreground/80" />
               <span className="text-2xl font-bold text-primary-foreground">IATA</span>
               <span className="text-sm text-primary-foreground/60">Certified Agency</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 p-4">
-              <Clock className="h-8 w-8 text-primary-foreground/80" />
-              <span className="text-2xl font-bold text-primary-foreground">24/7</span>
-              <span className="text-sm text-primary-foreground/60">Support Available</span>
             </div>
           </div>
         </div>

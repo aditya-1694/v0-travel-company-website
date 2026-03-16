@@ -16,12 +16,11 @@ export function Footer() {
       { name: "Medical Evacuation", href: "#services" },
       { name: "Corporate Travel", href: "#services" },
       { name: "MICE & Events", href: "#services" },
-      { name: "24/7 Support", href: "#contact" },
     ],
   }
 
   return (
-    <footer className="bg-primary border-t border-primary-foreground/10">
+    <footer className="bg-foreground border-t border-card/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -35,28 +34,28 @@ export function Footer() {
                 className="h-14 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-primary-foreground/70 mb-6">
+            <p className="text-card/70 mb-6">
               Your trusted partner in corporate travel management since 1994. 
               IATA certified and family-owned.
             </p>
             {/* IATA Badge */}
-            <div className="inline-flex items-center gap-3 p-3 bg-primary-foreground/5 rounded-lg border border-primary-foreground/10">
-              <div className="h-10 w-16 bg-primary-foreground/10 rounded flex items-center justify-center border border-dashed border-primary-foreground/20">
-                <span className="text-[8px] text-primary-foreground/50 font-medium text-center">IATA<br/>LOGO</span>
+            <div className="inline-flex items-center gap-3 p-3 bg-card/5 rounded-lg border border-card/10">
+              <div className="h-10 w-16 bg-card/10 rounded flex items-center justify-center border border-dashed border-card/20">
+                <span className="text-[8px] text-card/50 font-medium text-center">IATA<br/>LOGO</span>
               </div>
-              <span className="text-sm text-primary-foreground/70">IATA Certified</span>
+              <span className="text-sm text-card/70">IATA Certified</span>
             </div>
           </div>
 
           {/* Company Links */}
           <div>
-            <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-6">Company</h3>
+            <h3 className="text-sm font-semibold text-card uppercase tracking-wider mb-6">Company</h3>
             <ul className="space-y-4">
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-card/70 hover:text-card transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -67,13 +66,13 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-6">Services</h3>
+            <h3 className="text-sm font-semibold text-card uppercase tracking-wider mb-6">Services</h3>
             <ul className="space-y-4">
               {navigation.services.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-card/70 hover:text-card transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -84,24 +83,24 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-sm font-semibold text-primary-foreground uppercase tracking-wider mb-6">Contact</h3>
+            <h3 className="text-sm font-semibold text-card uppercase tracking-wider mb-6">Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary-foreground/80 shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/70 text-sm">
+                <MapPin className="h-5 w-5 text-card/80 shrink-0 mt-0.5" />
+                <span className="text-card/70 text-sm">
                   S-06, 2nd Floor, Triveni Complex<br />
                   Sheikh Sarai Phase-1, New Delhi 110 017
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary-foreground/80 shrink-0" />
-                <a href="tel:+911140154725" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <Phone className="h-5 w-5 text-card/80 shrink-0" />
+                <a href="tel:+911140154725" className="text-card/70 hover:text-card transition-colors text-sm">
                   +91-11-40154725
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary-foreground/80 shrink-0" />
-                <a href="mailto:info@insighttravels.com" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <Mail className="h-5 w-5 text-card/80 shrink-0" />
+                <a href="mailto:info@insighttravels.com" className="text-card/70 hover:text-card transition-colors text-sm">
                   info@insighttravels.com
                 </a>
               </li>
@@ -110,16 +109,16 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-primary-foreground/10">
+        <div className="mt-16 pt-8 border-t border-card/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-primary-foreground/50">
+            <p className="text-sm text-card/50">
               © {currentYear} Insight Travels and Tours. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground/70 transition-colors">
+              <Link href="#" className="text-sm text-card/50 hover:text-card/70 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground/70 transition-colors">
+              <Link href="#" className="text-sm text-card/50 hover:text-card/70 transition-colors">
                 Terms of Service
               </Link>
             </div>
