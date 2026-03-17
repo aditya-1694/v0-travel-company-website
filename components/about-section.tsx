@@ -1,4 +1,5 @@
 import { Users, Heart, Globe, Award } from "lucide-react"
+import Image from "next/image"
 
 export function AboutSection() {
   const values = [
@@ -52,12 +53,16 @@ export function AboutSection() {
 
             {/* IATA Badge */}
             <div className="mt-8 inline-flex items-center gap-4 p-4 bg-card rounded-xl border border-border">
-              <div className="h-16 w-24 bg-muted rounded-lg flex items-center justify-center border border-dashed border-border">
-                <span className="text-xs text-muted-foreground font-medium text-center">IATA<br/>LOGO</span>
-              </div>
+              <Image 
+                src="/images/iata-logo.png" 
+                alt="IATA Accredited Agent" 
+                width={80} 
+                height={80}
+                className="h-16 w-auto"
+              />
               <div>
-                <p className="font-semibold text-foreground">IATA Certified</p>
-                <p className="text-sm text-muted-foreground">International Air Transport Association</p>
+                <p className="font-semibold text-foreground">IATA Accredited</p>
+                <p className="text-sm text-muted-foreground">Certified Travel Agent</p>
               </div>
             </div>
           </div>

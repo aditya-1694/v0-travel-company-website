@@ -40,9 +40,13 @@ export function Footer() {
             </p>
             {/* IATA Badge */}
             <div className="inline-flex items-center gap-3 p-3 bg-card/5 rounded-lg border border-card/10">
-              <div className="h-10 w-16 bg-card/10 rounded flex items-center justify-center border border-dashed border-card/20">
-                <span className="text-[8px] text-card/50 font-medium text-center">IATA<br/>LOGO</span>
-              </div>
+              <Image 
+                src="/images/iata-logo.png" 
+                alt="IATA Accredited Agent" 
+                width={48} 
+                height={48}
+                className="h-10 w-auto"
+              />
               <span className="text-sm text-card/70">IATA Certified</span>
             </div>
           </div>
