@@ -25,13 +25,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
+            <div className="mb-6 bg-card/90 p-2 rounded-lg inline-block">
               <Image 
                 src="/images/insight-logo.png" 
                 alt="Insight Travels and Tours" 
                 width={180} 
                 height={60}
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-card/70 mb-6">
@@ -40,9 +40,13 @@ export function Footer() {
             </p>
             {/* IATA Badge */}
             <div className="inline-flex items-center gap-3 p-3 bg-card/5 rounded-lg border border-card/10">
-              <div className="h-10 w-16 bg-card/10 rounded flex items-center justify-center border border-dashed border-card/20">
-                <span className="text-[8px] text-card/50 font-medium text-center">IATA<br/>LOGO</span>
-              </div>
+              <Image 
+                src="/images/iata-logo.png" 
+                alt="IATA Accredited Agent" 
+                width={48} 
+                height={48}
+                className="h-10 w-auto"
+              />
               <span className="text-sm text-card/70">IATA Certified</span>
             </div>
           </div>

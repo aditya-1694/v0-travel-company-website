@@ -25,12 +25,6 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
         <div className="text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8">
-            <Shield className="h-4 w-4 text-primary-foreground" />
-            <span className="text-sm font-medium text-primary-foreground">IATA Certified Since 1994</span>
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-primary-foreground mb-6 text-balance">
             Your Trusted Partner in
@@ -39,8 +33,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-primary-foreground/70 mb-10 text-pretty">
-            Leave the travel to us, we&apos;ll handle it so you can focus on growing your business. 
-            Three decades of simplifying travel for enterprises worldwide.
+            Three decades of simplifying travel for enterprises worldwide. Leave the travel to us, we&apos;ll handle it so you can focus on growing your business.
           </p>
 
           {/* CTA Buttons */}
