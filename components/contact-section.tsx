@@ -49,7 +49,7 @@ export function ContactSection() {
                   <p className="text-muted-foreground">
                     S-06, 2nd Floor, Shopping Cum Office Complex<br />
                     (Triveni) Sheikh Sarai Phase-1<br />
-                    New Delhi 110 017
+                    New Delhi 110017
                   </p>
                 </div>
               </div>
@@ -88,8 +88,7 @@ export function ContactSection() {
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Business Hours</h4>
                   <p className="text-muted-foreground">
-                    Monday - Friday: 9:00 AM - 6:00 PM<br />
-                    Saturday: 10:00 AM - 2:00 PM
+                    Monday - Saturday: 10:00 AM - 6:00 PM
                   </p>
                 </div>
               </div>

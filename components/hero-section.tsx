@@ -33,8 +33,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-primary-foreground/70 mb-10 text-pretty">
-            Leave the travel to us, we&apos;ll handle it so you can focus on growing your business. 
-            Three decades of simplifying travel for enterprises worldwide.
+            Three decades of simplifying travel for enterprises worldwide. Leave the travel to us, we&apos;ll handle it so you can focus on growing your business.
           </p>
 
           {/* CTA Buttons */}

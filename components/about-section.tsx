@@ -6,22 +6,26 @@ export function AboutSection() {
     {
       icon: Heart,
       title: "Family Values",
-      description: "Built on trust and personal relationships that span generations"
+      description: "Built on trust and personal relationships that span generations",
+      image: "/images/family-values.jpg"
     },
     {
       icon: Globe,
-      title: "Global Reach",
-      description: "Worldwide network ensuring seamless travel experiences"
+      title: "India Based",
+      description: "Dedicated service excellence across India with local expertise",
+      image: "/images/india-service.jpg"
     },
     {
       icon: Users,
       title: "Client Focus",
-      description: "Your business needs drive every decision we make"
+      description: "Your business needs drive every decision we make",
+      image: "/images/client-focus.jpg"
     },
     {
       icon: Award,
       title: "Excellence",
-      description: "IATA certified with three decades of industry expertise"
+      description: "IATA certified with three decades of industry expertise",
+      image: "/images/excellence.jpg"
     }
   ]
 
@@ -52,16 +56,16 @@ export function AboutSection() {
             </div>
 
             {/* IATA Badge */}
-            <div className="mt-8 inline-flex items-center gap-4 p-4 bg-card rounded-xl border border-border">
+            <div className="mt-8 flex items-center gap-6">
               <Image 
                 src="/images/iata-logo.png" 
                 alt="IATA Accredited Agent" 
-                width={80} 
-                height={80}
-                className="h-16 w-auto"
+                width={120} 
+                height={120}
+                className="h-24 w-auto"
               />
               <div>
-                <p className="font-semibold text-foreground">IATA Accredited</p>
+                <p className="font-semibold text-foreground text-lg">IATA Accredited</p>
                 <p className="text-sm text-muted-foreground">Certified Travel Agent</p>
               </div>
             </div>
@@ -72,13 +76,25 @@ export function AboutSection() {
             {values.map((value, index) => (
               <div 
                 key={index}
-                className="p-6 bg-card rounded-2xl border border-border hover:border-accent/30 transition-colors group"
+                className="group overflow-hidden rounded-2xl border border-border hover:border-accent/30 transition-all hover:shadow-lg"
               >
-                <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                  <value.icon className="h-6 w-6 text-accent" />
+                {/* Image */}
+                <div className="relative h-40 w-full overflow-hidden bg-muted">
+                  <Image 
+                    src={value.image} 
+                    alt={value.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
-                <p className="text-sm text-muted-foreground">{value.description}</p>
+                {/* Content */}
+                <div className="p-6 bg-card">
+                  <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                    <value.icon className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
+                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                </div>
               </div>
             ))}
           </div>
