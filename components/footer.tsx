@@ -25,13 +25,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
+            <div className="mb-6 bg-card/90 p-2 rounded-lg inline-block">
               <Image 
                 src="/images/insight-logo.png" 
                 alt="Insight Travels and Tours" 
                 width={180} 
                 height={60}
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-card/70 mb-6">
