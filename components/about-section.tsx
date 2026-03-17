@@ -56,18 +56,14 @@ export function AboutSection() {
             </div>
 
             {/* IATA Badge */}
-            <div className="mt-8 flex items-center gap-6">
+            <div className="mt-8">
               <Image 
                 src="/images/iata-logo.png" 
                 alt="IATA Accredited Agent" 
-                width={120} 
-                height={120}
-                className="h-24 w-auto"
+                width={160} 
+                height={160}
+                className="h-32 w-auto"
               />
-              <div>
-                <p className="font-semibold text-foreground text-lg">IATA Accredited</p>
-                <p className="text-sm text-muted-foreground">Certified Travel Agent</p>
-              </div>
             </div>
           </div>
 
