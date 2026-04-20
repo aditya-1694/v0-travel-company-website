@@ -28,7 +28,7 @@ export function ClientsSection() {
         {/* Infinite Marquee */}
         <div className="relative overflow-hidden">
           <style>{`
-            @keyframes scroll {
+            @keyframes marquee {
               0% {
                 transform: translateX(0);
               }
@@ -38,7 +38,8 @@ export function ClientsSection() {
             }
             .marquee {
               display: flex;
-              animation: scroll 15s linear infinite;
+              animation: marquee 15s linear infinite;
+              will-change: transform;
             }
             .marquee:hover {
               animation-play-state: paused;
@@ -53,7 +54,7 @@ export function ClientsSection() {
           `}</style>
           
           <div className="marquee">
-            {[...clients, ...clients].map((client, index) => (
+            {[...clients, ...clients, ...clients].map((client, index) => (
               <div key={index} className="marquee-item px-6">
                 <div className="relative h-24 w-full">
                   <Image
