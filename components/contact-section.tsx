@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Send, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -13,11 +13,38 @@ export function ContactSection() {
     company: "",
     message: ""
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+  const [statusMessage, setStatusMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    setIsLoading(true)
+    setStatus("idle")
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to send email")
+      }
+
+      setStatus("success")
+      setStatusMessage("Thank you! We've received your message and will get back to you soon.")
+      setFormData({ name: "", email: "", company: "", message: "" })
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000)
+    } catch (error) {
+      setStatus("error")
+      setStatusMessage("Failed to send message. Please try again or contact us directly.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -111,6 +138,7 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 <div>
@@ -124,6 +152,7 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
+                    disabled={isLoading}
                   />
                 </div>
               </div>
@@ -137,6 +166,7 @@ export function ContactSection() {
                   placeholder="Your Company"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  disabled={isLoading}
                 />
               </div>
               <div>
@@ -150,11 +180,34 @@ export function ContactSection() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
+                  disabled={isLoading}
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send Message
-                <Send className="ml-2 h-5 w-5" />
+              
+              {/* Status Messages */}
+              {status === "success" && (
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-700 text-sm">{statusMessage}</p>
+                </div>
+              )}
+              {status === "error" && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-700 text-sm">{statusMessage}</p>
+                </div>
+              )}
+              
+              <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="ml-2 h-5 w-5" />
+                  </>
+                )}
               </Button>
             </form>
           </div>
