@@ -1,14 +1,17 @@
+"use client"
+
+import Image from "next/image"
+
 export function ClientsSection() {
-  // Placeholder for client logos - replace with actual client logos
   const clients = [
-    { name: "Client 1" },
-    { name: "Client 2" },
-    { name: "Client 3" },
-    { name: "Client 4" },
-    { name: "Client 5" },
-    { name: "Client 6" },
-    { name: "Client 7" },
-    { name: "Client 8" },
+    { name: "IFCI Venture", src: "/images/client-ifci.png" },
+    { name: "FHI India", src: "/images/client-fhiindia.png" },
+    { name: "EM SOS", src: "/images/client-emsos.png" },
+    { name: "Arohan", src: "/images/client-arohan.png" },
+    { name: "Rapid Response EMS", src: "/images/client-rapidresponse.png" },
+    { name: "FHI 360", src: "/images/client-fhi360.png" },
+    { name: "IFMR", src: "/images/client-ifmr.png" },
+    { name: "Johns Hopkins", src: "/images/client-johnshopkins.png" },
   ]
 
   return (
@@ -20,34 +23,50 @@ export function ClientsSection() {
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight text-balance">
             Companies That Trust Us
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
-            We&apos;re proud to serve leading organizations across various industries, 
-            helping them manage their corporate travel needs efficiently.
-          </p>
         </div>
 
-        {/* Client Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
-          {clients.map((client, index) => (
-            <div 
-              key={index}
-              className="h-24 sm:h-28 bg-card rounded-xl border border-border border-dashed flex items-center justify-center hover:border-accent/30 transition-colors group"
-            >
-              <div className="text-center">
-                <div className="h-10 w-24 bg-muted rounded flex items-center justify-center mx-auto mb-2">
-                  <span className="text-xs text-muted-foreground font-medium">LOGO</span>
+        {/* Infinite Marquee */}
+        <div className="relative overflow-hidden">
+          <style>{`
+            @keyframes scroll {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .marquee {
+              display: flex;
+              animation: scroll 30s linear infinite;
+            }
+            .marquee:hover {
+              animation-play-state: paused;
+            }
+            .marquee-item {
+              flex-shrink: 0;
+              width: 200px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          `}</style>
+          
+          <div className="marquee">
+            {[...clients, ...clients].map((client, index) => (
+              <div key={index} className="marquee-item px-6">
+                <div className="relative h-24 w-full">
+                  <Image
+                    src={client.src}
+                    alt={client.name}
+                    fill
+                    className="object-contain"
+                    sizes="200px"
+                  />
                 </div>
-                <span className="text-xs text-muted-foreground">{client.name}</span>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Additional Trust Indicator */}
-        <div className="mt-16 text-center">
-          <p className="text-muted-foreground">
-            <span className="font-semibold text-foreground">100+</span> businesses trust Insight Travels for their corporate travel needs
-          </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
