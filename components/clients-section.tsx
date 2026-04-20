@@ -26,15 +26,18 @@ export function ClientsSection() {
         </div>
 
         {/* Infinite Marquee */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden bg-background py-8">
           <style>{`
             @keyframes marquee {
               0% {
                 transform: translateX(0);
               }
               100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-200px * 8));
               }
+            }
+            .marquee-container {
+              overflow: hidden;
             }
             .marquee {
               display: flex;
@@ -50,23 +53,26 @@ export function ClientsSection() {
               display: flex;
               align-items: center;
               justify-content: center;
+              padding: 0 24px;
             }
           `}</style>
           
-          <div className="marquee">
-            {[...clients, ...clients, ...clients].map((client, index) => (
-              <div key={index} className="marquee-item px-6">
-                <div className="relative h-24 w-full">
-                  <Image
-                    src={client.src}
-                    alt={client.name}
-                    fill
-                    className="object-contain"
-                    sizes="200px"
-                  />
+          <div className="marquee-container">
+            <div className="marquee">
+              {[...clients, ...clients].map((client, index) => (
+                <div key={index} className="marquee-item">
+                  <div className="relative h-24 w-full">
+                    <Image
+                      src={client.src}
+                      alt={client.name}
+                      fill
+                      className="object-contain"
+                      sizes="200px"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
