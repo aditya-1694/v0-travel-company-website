@@ -38,7 +38,7 @@ export function ClientsSection() {
             }
             .marquee {
               display: flex;
-              animation: scroll 30s linear infinite;
+              animation: scroll 15s linear infinite;
             }
             .marquee:hover {
               animation-play-state: paused;
