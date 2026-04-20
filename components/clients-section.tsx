@@ -38,14 +38,14 @@ export function ClientsSection() {
             }
             .marquee {
               display: flex;
-              animation: scroll 20s linear infinite;
+              animation: scroll 30s linear infinite;
             }
             .marquee:hover {
               animation-play-state: paused;
             }
             .marquee-item {
               flex-shrink: 0;
-              width: 400px;
+              width: 200px;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -55,13 +55,13 @@ export function ClientsSection() {
           <div className="marquee">
             {[...clients, ...clients].map((client, index) => (
               <div key={index} className="marquee-item px-6">
-                <div className="relative h-48 w-full">
+                <div className="relative h-24 w-full">
                   <Image
                     src={client.src}
                     alt={client.name}
                     fill
                     className="object-contain"
-                    sizes="400px"
+                    sizes="200px"
                   />
                 </div>
               </div>
