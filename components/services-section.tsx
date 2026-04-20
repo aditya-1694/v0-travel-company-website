@@ -1,6 +1,4 @@
-import { Ambulance, Plane, Users, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Ambulance, Plane, Users } from "lucide-react"
 
 export function ServicesSection() {
   const services = [
@@ -79,7 +77,7 @@ export function ServicesSection() {
               <p className="text-muted-foreground mb-6">{service.description}</p>
 
               {/* Features */}
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-2">
                 {service.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -87,14 +85,6 @@ export function ServicesSection() {
                   </li>
                 ))}
               </ul>
-
-              {/* Learn More */}
-              <Button variant="ghost" className="p-0 h-auto text-accent hover:text-accent/80 hover:bg-transparent group/btn" asChild>
-                <Link href="#contact">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
             </div>
           ))}
         </div>
