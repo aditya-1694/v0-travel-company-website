@@ -119,11 +119,8 @@ export function Footer() {
               © {currentYear} Insight Travels and Tours. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="#" className="text-sm text-card/50 hover:text-card/70 transition-colors">
+              <Link href="/privacy-policy" className="text-sm text-card/50 hover:text-card/70 transition-colors">
                 Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm text-card/50 hover:text-card/70 transition-colors">
-                Terms of Service
               </Link>
             </div>
           </div>
