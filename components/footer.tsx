@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-6 bg-card/90 p-2 rounded-lg inline-block">
+            <div className="mb-6">
               <Image 
                 src="/images/insight-logo.png" 
                 alt="Insight Travels and Tours" 
@@ -119,11 +119,8 @@ export function Footer() {
               © {currentYear} Insight Travels and Tours. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="#" className="text-sm text-card/50 hover:text-card/70 transition-colors">
+              <Link href="/privacy-policy" className="text-sm text-card/50 hover:text-card/70 transition-colors">
                 Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm text-card/50 hover:text-card/70 transition-colors">
-                Terms of Service
               </Link>
             </div>
           </div>
