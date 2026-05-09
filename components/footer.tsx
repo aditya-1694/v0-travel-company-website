@@ -9,6 +9,7 @@ export function Footer() {
     company: [
       { name: "About Us", href: "#about" },
       { name: "Services", href: "#services" },
+      { name: "Tour Packages", href: "/tour-packages" },
       { name: "Clients", href: "#clients" },
       { name: "Contact", href: "#contact" },
     ],
