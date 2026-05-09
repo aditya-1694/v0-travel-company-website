@@ -16,6 +16,7 @@ export function Footer() {
       { name: "Medical Evacuation", href: "#services" },
       { name: "Corporate Travel", href: "#services" },
       { name: "MICE & Events", href: "#services" },
+      { name: "Leisure Travel & Tourism", href: "#services" },
     ],
   }
 
