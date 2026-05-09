@@ -1,4 +1,4 @@
-import { Ambulance, Plane, Users } from "lucide-react"
+import { Ambulance, Plane, Users, MapPin } from "lucide-react"
 
 export function ServicesSection() {
   const services = [
@@ -37,6 +37,18 @@ export function ServicesSection() {
         "Group Travel Coordination",
         "On-site Management"
       ]
+    },
+    {
+      icon: MapPin,
+      number: "04",
+      title: "Leisure Travel & Tourism",
+      description: "Create unforgettable memories with our comprehensive leisure travel services. From customized family vacations to group tours and FIT (Free Independent Travel) packages, we design journeys tailored to your preferences.",
+      features: [
+        "Customized Holiday Packages",
+        "Group Tours",
+        "FIT Travel Planning",
+        "Leisure Getaways"
+      ]
     }
   ]
 
@@ -47,16 +59,15 @@ export function ServicesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-sm font-semibold text-accent uppercase tracking-widest">Our Services</span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight text-balance">
-            Comprehensive Travel Solutions for Your Business
+            Complete Travel Solutions for Every Journey
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            From routine corporate travel to emergency medical evacuations, 
-            we provide the expertise and support your organization needs.
+            Whether you&apos;re traveling for business or pleasure, we provide expert services tailored to your needs. From corporate travel to leisure vacations, we&apos;re your all-in-one travel partner.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
