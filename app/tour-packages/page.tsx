@@ -12,7 +12,7 @@ export default function TourPackagesPage() {
     // Australia
     {
       destination: "Australia",
-      image: "/images/packages-australia.jpg",
+      image: "/images/package-sydney-reef.jpg",
       title: "Sydney & Great Barrier Reef",
       duration: "8 Days / 7 Nights",
       price: "₹2,85,000",
@@ -36,7 +36,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Australia",
-      image: "/images/packages-australia.jpg",
+      image: "/images/package-wine-valley.jpg",
       title: "Melbourne & Adelaide Wine Tour",
       duration: "7 Days / 6 Nights",
       price: "₹2,45,000",
@@ -60,7 +60,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Australia",
-      image: "/images/packages-australia.jpg",
+      image: "/images/package-uluru.jpg",
       title: "Uluru Red Centre Adventure",
       duration: "6 Days / 5 Nights",
       price: "₹2,15,000",
@@ -86,7 +86,7 @@ export default function TourPackagesPage() {
     // Bali
     {
       destination: "Bali",
-      image: "/images/packages-bali.jpg",
+      image: "/images/package-bali-beach.jpg",
       title: "Bali Beach Paradise",
       duration: "5 Days / 4 Nights",
       price: "₹1,35,000",
@@ -110,7 +110,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Bali",
-      image: "/images/packages-bali.jpg",
+      image: "/images/package-mount-batur.jpg",
       title: "Adventure & Culture Week",
       duration: "7 Days / 6 Nights",
       price: "₹1,85,000",
@@ -134,7 +134,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Bali",
-      image: "/images/packages-bali.jpg",
+      image: "/images/package-honeymoon-bali.jpg",
       title: "Honeymoon Special",
       duration: "6 Days / 5 Nights",
       price: "₹1,95,000",
@@ -160,7 +160,7 @@ export default function TourPackagesPage() {
     // Vietnam
     {
       destination: "Vietnam",
-      image: "/images/packages-vietnam.jpg",
+      image: "/images/package-halong-bay.jpg",
       title: "Hanoi & Halong Bay",
       duration: "6 Days / 5 Nights",
       price: "₹1,55,000",
@@ -184,7 +184,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Vietnam",
-      image: "/images/packages-vietnam.jpg",
+      image: "/images/package-mekong-delta.jpg",
       title: "Ho Chi Minh to Mekong Delta",
       duration: "7 Days / 6 Nights",
       price: "₹1,75,000",
@@ -208,7 +208,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Vietnam",
-      image: "/images/packages-vietnam.jpg",
+      image: "/images/package-sapa-terraces.jpg",
       title: "Northern Vietnam Explorer",
       duration: "8 Days / 7 Nights",
       price: "₹1,95,000",
@@ -234,7 +234,7 @@ export default function TourPackagesPage() {
     // Thailand
     {
       destination: "Thailand",
-      image: "/images/packages-thailand.jpg",
+      image: "/images/package-phuket-islands.jpg",
       title: "Bangkok & Phuket Beach",
       duration: "6 Days / 5 Nights",
       price: "₹1,65,000",
@@ -258,7 +258,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Thailand",
-      image: "/images/packages-thailand.jpg",
+      image: "/images/package-elephant-sanctuary.jpg",
       title: "Chiang Mai Cultural Experience",
       duration: "7 Days / 6 Nights",
       price: "₹1,75,000",
@@ -282,7 +282,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Thailand",
-      image: "/images/packages-thailand.jpg",
+      image: "/images/package-krabi-railay.jpg",
       title: "Krabi & Island Paradise",
       duration: "5 Days / 4 Nights",
       price: "₹1,45,000",
@@ -308,7 +308,7 @@ export default function TourPackagesPage() {
     // Singapore
     {
       destination: "Singapore",
-      image: "/images/packages-singapore.jpg",
+      image: "/images/package-singapore-marina.jpg",
       title: "Singapore City Explorer",
       duration: "4 Days / 3 Nights",
       price: "₹1,25,000",
@@ -332,7 +332,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Singapore",
-      image: "/images/packages-singapore.jpg",
+      image: "/images/package-singapore-malaysia.jpg",
       title: "Singapore & Malaysia Combo",
       duration: "6 Days / 5 Nights",
       price: "₹1,65,000",
