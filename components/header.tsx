@@ -10,12 +10,12 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
     { name: "Tour Packages", href: "/tour-packages" },
-    { name: "Clients", href: "#clients" },
-    { name: "Contact", href: "#contact" },
+    { name: "Clients", href: "/#clients" },
+    { name: "Contact", href: "/#contact" },
   ]
 
   return (
@@ -23,7 +23,7 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="#" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image 
               src="/images/insight-logo.png" 
               alt="Insight Travels and Tours" 
