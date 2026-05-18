@@ -8,8 +8,8 @@ import { ArrowRight, Shield, Award } from "lucide-react"
 
 export function HeroSection() {
   const images = [
-    "/images/carousel-corporate.jpg",
     "/images/carousel-leisure.jpg",
+    "/images/carousel-corporate.jpg",
     "/images/carousel-events.jpg",
     "/images/carousel-adventure.jpg",
     "/images/carousel-luxury.jpg",
@@ -61,7 +61,7 @@ export function HeroSection() {
           </div>
         ))}
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Progress Bars */}

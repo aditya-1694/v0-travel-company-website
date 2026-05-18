@@ -454,7 +454,7 @@ export default function TourPackagesPage() {
 
                         {/* CTA */}
                         <Button className="w-full" asChild>
-                          <Link href="#contact">Inquire Now</Link>
+                          <Link href="#contact" onClick={() => window.scrollTo(0, document.body.scrollHeight)}>Inquire Now</Link>
                         </Button>
                       </div>
                     </div>
@@ -466,24 +466,7 @@ export default function TourPackagesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-card">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Book Your Adventure?</h2>
-          <p className="text-muted-foreground mb-8">
-            Contact us today to customize your package or answer any questions you may have.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild variant="outline">
-              <a href="tel:+911140154725">Call: +91-11-40154725</a>
-            </Button>
-            <Button asChild>
-              <a href="mailto:insighttravels95@gmail.com">Email: insighttravels95@gmail.com</a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
+      {/* Footer */}
       <Footer />
     </div>
   )
