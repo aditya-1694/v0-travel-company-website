@@ -13,9 +13,10 @@ export function Footer() {
       { name: "Contact", href: "#contact" },
     ],
     services: [
-      { name: "Medical Evacuation", href: "#services" },
-      { name: "Corporate Travel", href: "#services" },
-      { name: "MICE & Events", href: "#services" },
+      { name: "Medical Evacuation", href: "/services/medical-evacuation" },
+      { name: "Corporate Travel", href: "/services/corporate-travel" },
+      { name: "MICE & Events", href: "/services/mice-events" },
+      { name: "Leisure Travel & Tourism", href: "/tour-packages" },
     ],
   }
 

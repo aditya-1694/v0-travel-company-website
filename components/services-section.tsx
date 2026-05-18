@@ -1,4 +1,6 @@
-import { Ambulance, Plane, Users } from "lucide-react"
+import { Ambulance, Plane, Users, MapPin, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export function ServicesSection() {
   const services = [
@@ -6,7 +8,8 @@ export function ServicesSection() {
       icon: Ambulance,
       number: "01",
       title: "Global Medical Evacuation & Repatriation",
-      description: "Comprehensive medical evacuation services coordinated with healthcare professionals and insurance providers. We ensure safe, timely medical transport for employees anywhere in the world.",
+      description: "Comprehensive medical evacuation services coordinated with healthcare professionals and insurance providers.",
+      link: "/services/medical-evacuation",
       features: [
         "Rapid Emergency Response",
         "Coordination with Doctors",
@@ -18,7 +21,8 @@ export function ServicesSection() {
       icon: Plane,
       number: "02",
       title: "Corporate Travel Management",
-      description: "End-to-end travel solutions for your business. From flights and hotels to ground transportation and logistics, we handle every detail so your team travels seamlessly.",
+      description: "End-to-end travel solutions for your business. We handle flights, hotels, and complete logistics.",
+      link: "/services/corporate-travel",
       features: [
         "Flight Bookings",
         "Hotel Reservations",
@@ -30,12 +34,26 @@ export function ServicesSection() {
       icon: Users,
       number: "03",
       title: "MICE, Conferences & Corporate Events",
-      description: "Full-service event management for meetings, incentives, conferences, and exhibitions. We create memorable corporate experiences that drive engagement and results.",
+      description: "Full-service event management for meetings, incentives, conferences, and exhibitions.",
+      link: "/services/mice-events",
       features: [
         "Venue Selection",
         "Event Planning",
         "Group Travel Coordination",
         "On-site Management"
+      ]
+    },
+    {
+      icon: MapPin,
+      number: "04",
+      title: "Leisure Travel & Tourism",
+      description: "Customized family vacations, group tours, and FIT packages designed for your preferences.",
+      link: "/tour-packages",
+      features: [
+        "Customized Holiday Packages",
+        "Group Tours",
+        "FIT Travel Planning",
+        "Leisure Getaways"
       ]
     }
   ]
@@ -47,20 +65,19 @@ export function ServicesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-sm font-semibold text-accent uppercase tracking-widest">Our Services</span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight text-balance">
-            Comprehensive Travel Solutions for Your Business
+            Complete Travel Solutions for Every Journey
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            From routine corporate travel to emergency medical evacuations, 
-            we provide the expertise and support your organization needs.
+            Whether you&apos;re traveling for business or pleasure, we provide expert services tailored to your needs.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group relative bg-background rounded-2xl p-8 border border-border hover:border-accent/30 transition-all hover:shadow-lg"
+              className="group relative bg-background rounded-2xl p-8 border border-border hover:border-accent/30 transition-all hover:shadow-lg flex flex-col"
             >
               {/* Number */}
               <span className="absolute top-6 right-6 text-6xl font-bold text-muted/30">
@@ -73,11 +90,11 @@ export function ServicesSection() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold text-foreground mb-4">{service.title}</h3>
-              <p className="text-muted-foreground mb-6">{service.description}</p>
+              <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3>
+              <p className="text-muted-foreground mb-4 flex-grow">{service.description}</p>
 
               {/* Features */}
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-6">
                 {service.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -85,6 +102,14 @@ export function ServicesSection() {
                   </li>
                 ))}
               </ul>
+
+              {/* Explore Button */}
+              <Button asChild variant="outline" className="w-full group/btn">
+                <Link href={service.link}>
+                  Explore
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
             </div>
           ))}
         </div>

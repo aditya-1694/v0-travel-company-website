@@ -27,13 +27,13 @@ export function HeroSection() {
         <div className="text-center">
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-primary-foreground mb-6 text-balance">
-            Your Trusted Partner in
-            <span className="block text-primary-foreground/80">Corporate Travel</span>
+            Your Complete Travel
+            <span className="block text-primary-foreground/80">Solutions Partner</span>
           </h1>
 
           {/* Subheadline */}
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-primary-foreground/70 mb-10 text-pretty">
-            Three decades of simplifying travel for enterprises worldwide. Leave the travel to us, we&apos;ll handle it so you can focus on growing your business.
+            Three decades of excellence in corporate travel management, leisure vacations, and unforgettable journeys. Whether it's business or pleasure, let us handle the details while you focus on what matters.
           </p>
 
           {/* CTA Buttons */}
