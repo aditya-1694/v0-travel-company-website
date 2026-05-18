@@ -56,9 +56,6 @@ export function ContactSection() {
                 <p className="text-muted-foreground">
                   <a href="mailto:outbound@insighttravels.in" className="hover:text-accent transition-colors">
                     outbound@insighttravels.in
-                  </a><br />
-                  <a href="mailto:insighttravels95@gmail.com" className="hover:text-accent transition-colors">
-                    insighttravels95@gmail.com
                   </a>
                 </p>
               </div>
