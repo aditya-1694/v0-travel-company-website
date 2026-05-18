@@ -1,21 +1,71 @@
 "use client"
 
+import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Clock, CheckCircle } from "lucide-react"
+import { Clock, CheckCircle, Flame, Trophy, AlertCircle, Users, Calendar, Zap, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { TourSearchHero } from "@/components/tour-search-hero"
+import { TourFilterSidebar, type FilterState } from "@/components/tour-filter-sidebar"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+
+interface Package {
+  destination: string
+  image: string
+  title: string
+  duration: string
+  durationDays: number
+  price: number
+  highlights: string[]
+  inclusions: string[]
+  season: string
+  difficulty: "Easy" | "Moderate" | "Challenging"
+  travelTypes: string[]
+  groupSize: string
+  spotsRemaining: number
+  isPopular: boolean
+  discount: number | null
+  itinerary: { day: number; activity: string }[]
+}
 
 export default function TourPackagesPage() {
-  const packages = [
+  const [filters, setFilters] = useState<FilterState>({
+    destinations: [],
+    priceRange: [100000, 300000],
+    durations: [],
+    travelTypes: [],
+    seasons: [],
+  })
+
+  const packages: Package[] = [
     // Australia
     {
       destination: "Australia",
       image: "/images/package-sydney-reef.jpg",
       title: "Sydney & Great Barrier Reef",
       duration: "8 Days / 7 Nights",
-      price: "₹2,85,000",
+      durationDays: 8,
+      price: 285000,
+      season: "Oct-Mar",
+      difficulty: "Easy",
+      travelTypes: ["Leisure", "Adventure"],
+      groupSize: "8-20 people",
+      spotsRemaining: 2,
+      isPopular: true,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Arrival in Sydney, check-in at hotel" },
+        { day: 2, activity: "Sydney Opera House & Harbour Bridge tour" },
+        { day: 3, activity: "Bondi Beach visit and coastal walk" },
+        { day: 4, activity: "Great Barrier Reef snorkeling" },
+        { day: 5, activity: "Blue Mountains day excursion" },
+        { day: 6, activity: "Melbourne city tour" },
+        { day: 7, activity: "Wildlife encounters" },
+        { day: 8, activity: "Departure" },
+      ],
       highlights: [
         "Sydney Opera House & Harbour Bridge tour with expert guide",
         "Bondi Beach visit and coastal walk experience",
@@ -39,7 +89,24 @@ export default function TourPackagesPage() {
       image: "/images/package-wine-valley.jpg",
       title: "Melbourne & Adelaide Wine Tour",
       duration: "7 Days / 6 Nights",
-      price: "₹2,45,000",
+      durationDays: 7,
+      price: 245000,
+      season: "Oct-Mar",
+      difficulty: "Easy",
+      travelTypes: ["Leisure", "Luxury"],
+      groupSize: "6-15 people",
+      spotsRemaining: 5,
+      isPopular: false,
+      discount: 10,
+      itinerary: [
+        { day: 1, activity: "Arrival in Melbourne" },
+        { day: 2, activity: "Barossa Valley wine tasting tour" },
+        { day: 3, activity: "Adelaide Hills scenic drive" },
+        { day: 4, activity: "Great Ocean Road exploration" },
+        { day: 5, activity: "Yarra Valley wineries visit" },
+        { day: 6, activity: "Gourmet dining experience" },
+        { day: 7, activity: "Departure" },
+      ],
       highlights: [
         "Barossa Valley premium wine tastings and vineyard tours",
         "Adelaide Hills scenic drive and local markets",
@@ -63,7 +130,23 @@ export default function TourPackagesPage() {
       image: "/images/package-uluru.jpg",
       title: "Uluru Red Centre Adventure",
       duration: "6 Days / 5 Nights",
-      price: "₹2,15,000",
+      durationDays: 6,
+      price: 215000,
+      season: "May-Aug",
+      difficulty: "Challenging",
+      travelTypes: ["Adventure"],
+      groupSize: "10-18 people",
+      spotsRemaining: 3,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Arrival at Uluru" },
+        { day: 2, activity: "Uluru sunset viewing" },
+        { day: 3, activity: "Kings Canyon trek" },
+        { day: 4, activity: "Aboriginal cultural experience" },
+        { day: 5, activity: "4x4 desert adventure" },
+        { day: 6, activity: "Departure" },
+      ],
       highlights: [
         "Uluru sunset and sunrise viewings with photography time",
         "Kings Canyon Trek with trained trekking guides",
@@ -82,14 +165,28 @@ export default function TourPackagesPage() {
         "Camping comfort experience option"
       ]
     },
-
     // Bali
     {
       destination: "Bali",
       image: "/images/package-bali-beach.jpg",
       title: "Bali Beach Paradise",
       duration: "5 Days / 4 Nights",
-      price: "₹1,35,000",
+      durationDays: 5,
+      price: 135000,
+      season: "Apr-Oct",
+      difficulty: "Easy",
+      travelTypes: ["Leisure", "Honeymoon"],
+      groupSize: "2-30 people",
+      spotsRemaining: 1,
+      isPopular: true,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Arrival in Bali" },
+        { day: 2, activity: "Ubud rice terraces visit" },
+        { day: 3, activity: "Bali Swing adventure" },
+        { day: 4, activity: "Beach relaxation & spa treatment" },
+        { day: 5, activity: "Departure" },
+      ],
       highlights: [
         "Ubud rice terraces with scenic photo opportunities",
         "Bali Swing adventure among jungle canopy",
@@ -113,7 +210,24 @@ export default function TourPackagesPage() {
       image: "/images/package-mount-batur.jpg",
       title: "Adventure & Culture Week",
       duration: "7 Days / 6 Nights",
-      price: "₹1,85,000",
+      durationDays: 7,
+      price: 185000,
+      season: "Apr-Oct",
+      difficulty: "Moderate",
+      travelTypes: ["Adventure", "Cultural"],
+      groupSize: "8-25 people",
+      spotsRemaining: 7,
+      isPopular: true,
+      discount: 15,
+      itinerary: [
+        { day: 1, activity: "Arrival and orientation" },
+        { day: 2, activity: "Mount Batur sunrise trek" },
+        { day: 3, activity: "Waterfall trekking adventure" },
+        { day: 4, activity: "Traditional village exploration" },
+        { day: 5, activity: "Spa and wellness day" },
+        { day: 6, activity: "Snorkeling at coral reefs" },
+        { day: 7, activity: "Departure" },
+      ],
       highlights: [
         "Mount Batur sunrise trek with expert mountaineer guide",
         "Waterfall trekking through rainforests to Tegenungan",
@@ -137,7 +251,23 @@ export default function TourPackagesPage() {
       image: "/images/package-honeymoon-bali.jpg",
       title: "Honeymoon Special",
       duration: "6 Days / 5 Nights",
-      price: "₹1,95,000",
+      durationDays: 6,
+      price: 195000,
+      season: "Nov-Mar",
+      difficulty: "Easy",
+      travelTypes: ["Leisure", "Honeymoon", "Luxury"],
+      groupSize: "2 people",
+      spotsRemaining: 4,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Romantic arrival and check-in" },
+        { day: 2, activity: "Private beachfront dinner" },
+        { day: 3, activity: "Sunset cruise" },
+        { day: 4, activity: "Couples spa experience" },
+        { day: 5, activity: "Island hopping adventure" },
+        { day: 6, activity: "Departure with memories" },
+      ],
       highlights: [
         "Private beachfront dinner with candlelight setup",
         "Romantic sunset cruise with refreshments",
@@ -156,14 +286,29 @@ export default function TourPackagesPage() {
         "Concierge service for romantic arrangements"
       ]
     },
-
     // Vietnam
     {
       destination: "Vietnam",
       image: "/images/package-halong-bay.jpg",
       title: "Hanoi & Halong Bay",
       duration: "6 Days / 5 Nights",
-      price: "₹1,55,000",
+      durationDays: 6,
+      price: 155000,
+      season: "Oct-Apr",
+      difficulty: "Easy",
+      travelTypes: ["Cultural", "Adventure"],
+      groupSize: "10-20 people",
+      spotsRemaining: 8,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Arrival in Hanoi" },
+        { day: 2, activity: "Hanoi Old Quarter exploration" },
+        { day: 3, activity: "Halong Bay cruise departure" },
+        { day: 4, activity: "Overnight on traditional junk boat" },
+        { day: 5, activity: "Kayaking & water activities" },
+        { day: 6, activity: "Departure" },
+      ],
       highlights: [
         "Hanoi Old Quarter exploration with local guide",
         "Halong Bay UNESCO cruise on luxury junk boat",
@@ -187,7 +332,24 @@ export default function TourPackagesPage() {
       image: "/images/package-mekong-delta.jpg",
       title: "Ho Chi Minh to Mekong Delta",
       duration: "7 Days / 6 Nights",
-      price: "₹1,75,000",
+      durationDays: 7,
+      price: 175000,
+      season: "Nov-Mar",
+      difficulty: "Easy",
+      travelTypes: ["Cultural"],
+      groupSize: "8-18 people",
+      spotsRemaining: 6,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Ho Chi Minh City arrival" },
+        { day: 2, activity: "War history and heritage tour" },
+        { day: 3, activity: "Mekong Delta cruise" },
+        { day: 4, activity: "Floating markets exploration" },
+        { day: 5, activity: "Village homestay experience" },
+        { day: 6, activity: "Fruit orchards tour" },
+        { day: 7, activity: "Departure" },
+      ],
       highlights: [
         "Ho Chi Minh City war history and heritage tour",
         "Mekong Delta boat cruise through backwaters",
@@ -211,7 +373,25 @@ export default function TourPackagesPage() {
       image: "/images/package-sapa-terraces.jpg",
       title: "Northern Vietnam Explorer",
       duration: "8 Days / 7 Nights",
-      price: "₹1,95,000",
+      durationDays: 8,
+      price: 195000,
+      season: "Sep-Nov",
+      difficulty: "Moderate",
+      travelTypes: ["Adventure", "Cultural"],
+      groupSize: "10-20 people",
+      spotsRemaining: 5,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Hanoi arrival and orientation" },
+        { day: 2, activity: "Street food tour" },
+        { day: 3, activity: "Halong Bay cruise" },
+        { day: 4, activity: "Sapa trek starts" },
+        { day: 5, activity: "Mountain trekking adventure" },
+        { day: 6, activity: "Village homestay" },
+        { day: 7, activity: "Local artisan workshops" },
+        { day: 8, activity: "Departure" },
+      ],
       highlights: [
         "Sapa trek through terraced rice paddies",
         "Hanoi cultural immersion and street food tour",
@@ -230,14 +410,29 @@ export default function TourPackagesPage() {
         "All guides, permits and transportation"
       ]
     },
-
     // Thailand
     {
       destination: "Thailand",
       image: "/images/package-phuket-islands.jpg",
       title: "Bangkok & Phuket Beach",
       duration: "6 Days / 5 Nights",
-      price: "₹1,65,000",
+      durationDays: 6,
+      price: 165000,
+      season: "Nov-Feb",
+      difficulty: "Easy",
+      travelTypes: ["Leisure"],
+      groupSize: "6-25 people",
+      spotsRemaining: 9,
+      isPopular: true,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Bangkok arrival" },
+        { day: 2, activity: "Grand Palace tour" },
+        { day: 3, activity: "Phuket beach arrival" },
+        { day: 4, activity: "Island hopping adventure" },
+        { day: 5, activity: "Beach relaxation & activities" },
+        { day: 6, activity: "Departure" },
+      ],
       highlights: [
         "Bangkok Grand Palace tour with expert historian",
         "Phuket beach resorts and water activities",
@@ -261,7 +456,24 @@ export default function TourPackagesPage() {
       image: "/images/package-elephant-sanctuary.jpg",
       title: "Chiang Mai Cultural Experience",
       duration: "7 Days / 6 Nights",
-      price: "₹1,75,000",
+      durationDays: 7,
+      price: 175000,
+      season: "Nov-Feb",
+      difficulty: "Easy",
+      travelTypes: ["Cultural"],
+      groupSize: "8-20 people",
+      spotsRemaining: 10,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Chiang Mai arrival" },
+        { day: 2, activity: "Elephant sanctuary visit" },
+        { day: 3, activity: "Buddhist temple tours" },
+        { day: 4, activity: "Thai cooking class" },
+        { day: 5, activity: "Night Bazaar shopping" },
+        { day: 6, activity: "Silk weaving workshops" },
+        { day: 7, activity: "Departure" },
+      ],
       highlights: [
         "Elephant sanctuary visit and ethical elephant interaction",
         "Buddhist temple tours with meditation sessions",
@@ -285,7 +497,22 @@ export default function TourPackagesPage() {
       image: "/images/package-krabi-railay.jpg",
       title: "Krabi & Island Paradise",
       duration: "5 Days / 4 Nights",
-      price: "₹1,45,000",
+      durationDays: 5,
+      price: 145000,
+      season: "Nov-Apr",
+      difficulty: "Moderate",
+      travelTypes: ["Adventure", "Leisure"],
+      groupSize: "6-20 people",
+      spotsRemaining: 2,
+      isPopular: true,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Krabi arrival" },
+        { day: 2, activity: "Phi Phi Islands snorkeling" },
+        { day: 3, activity: "Railay Beach exploration" },
+        { day: 4, activity: "Rock climbing adventure" },
+        { day: 5, activity: "Departure" },
+      ],
       highlights: [
         "Phi Phi Islands snorkeling and beach hopping",
         "Railay Beach kayaking and rock climbing",
@@ -304,14 +531,27 @@ export default function TourPackagesPage() {
         "Water activities and safety equipment"
       ]
     },
-
     // Singapore
     {
       destination: "Singapore",
       image: "/images/package-singapore-marina.jpg",
       title: "Singapore City Explorer",
       duration: "4 Days / 3 Nights",
-      price: "₹1,25,000",
+      durationDays: 4,
+      price: 125000,
+      season: "Jan-Dec",
+      difficulty: "Easy",
+      travelTypes: ["Leisure", "Luxury"],
+      groupSize: "4-30 people",
+      spotsRemaining: 12,
+      isPopular: false,
+      discount: null,
+      itinerary: [
+        { day: 1, activity: "Singapore arrival" },
+        { day: 2, activity: "Marina Bay Sands tour" },
+        { day: 3, activity: "Sentosa Island adventure" },
+        { day: 4, activity: "Departure" },
+      ],
       highlights: [
         "Marina Bay Sands observation deck with views",
         "Gardens by the Bay light show experience",
@@ -335,7 +575,23 @@ export default function TourPackagesPage() {
       image: "/images/package-singapore-malaysia.jpg",
       title: "Singapore & Malaysia Combo",
       duration: "6 Days / 5 Nights",
-      price: "₹1,65,000",
+      durationDays: 6,
+      price: 165000,
+      season: "Jan-Dec",
+      difficulty: "Easy",
+      travelTypes: ["Leisure"],
+      groupSize: "6-20 people",
+      spotsRemaining: 8,
+      isPopular: false,
+      discount: 12,
+      itinerary: [
+        { day: 1, activity: "Singapore arrival" },
+        { day: 2, activity: "Singapore city exploration" },
+        { day: 3, activity: "Travel to Kuala Lumpur" },
+        { day: 4, activity: "Petronas Twin Towers & Batu Caves" },
+        { day: 5, activity: "Night market & local experiences" },
+        { day: 6, activity: "Departure" },
+      ],
       highlights: [
         "Singapore Marina Bay and Gardens exploration",
         "Kuala Lumpur Petronas Twin Towers experience",
@@ -353,50 +609,143 @@ export default function TourPackagesPage() {
         "Petronas Twin Towers experience",
         "Shopping mall discount vouchers"
       ]
-    }
+    },
   ]
 
-  const groupedPackages = packages.reduce((acc, pkg) => {
-    if (!acc[pkg.destination]) {
-      acc[pkg.destination] = []
+  // Filter packages based on active filters
+  const filteredPackages = useMemo(() => {
+    return packages.filter((pkg) => {
+      // Destination filter
+      if (filters.destinations.length > 0 && !filters.destinations.includes(pkg.destination)) {
+        return false
+      }
+
+      // Price filter
+      if (pkg.price < filters.priceRange[0] || pkg.price > filters.priceRange[1]) {
+        return false
+      }
+
+      // Duration filter
+      if (filters.durations.length > 0) {
+        const durationMatch = filters.durations.some((dur) => {
+          if (dur === "5-6 Days" && pkg.durationDays >= 5 && pkg.durationDays <= 6) return true
+          if (dur === "7 Nights" && pkg.durationDays === 7) return true
+          if (dur === "8+ Days" && pkg.durationDays >= 8) return true
+          return false
+        })
+        if (!durationMatch) return false
+      }
+
+      // Travel type filter
+      if (filters.travelTypes.length > 0) {
+        const typeMatch = filters.travelTypes.some((type) => pkg.travelTypes.includes(type))
+        if (!typeMatch) return false
+      }
+
+      // Season filter
+      if (filters.seasons.length > 0 && !filters.seasons.includes(pkg.season)) {
+        return false
+      }
+
+      return true
+    })
+  }, [packages, filters])
+
+  const getActivityIcon = (type: string) => {
+    switch (type) {
+      case "Leisure":
+        return "🏖️"
+      case "Adventure":
+        return "🎒"
+      case "Cultural":
+        return "🏛️"
+      case "Luxury":
+        return "✨"
+      case "Honeymoon":
+        return "💕"
+      default:
+        return "🌍"
     }
-    acc[pkg.destination].push(pkg)
-    return acc
-  }, {} as Record<string, typeof packages>)
+  }
+
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case "Easy":
+        return "bg-green-100 text-green-800"
+      case "Moderate":
+        return "bg-yellow-100 text-yellow-800"
+      case "Challenging":
+        return "bg-red-100 text-red-800"
+      default:
+        return "bg-gray-100 text-gray-800"
+    }
+  }
 
   return (
     <div className="min-h-screen">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-accent/10 to-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Explore the World with Us
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Curated tour packages from India to your dream destinations. Experience culture, adventure, and beauty with carefully planned itineraries.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Packages Grid */}
+      {/* Hero Search */}
+      <TourSearchHero onSearch={() => {}} />
+
+      {/* Main Content */}
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
-            {Object.entries(groupedPackages).map(([destination, destPackages]) => (
-              <div key={destination}>
-                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12">
-                  Packages to {destination}
+          <div className="flex gap-8">
+            {/* Sidebar */}
+            <div className="hidden lg:block flex-shrink-0">
+              <TourFilterSidebar filters={filters} onFiltersChange={setFilters} />
+            </div>
+
+            {/* Packages Grid */}
+            <div className="flex-1">
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-2">
+                  Available Packages ({filteredPackages.length})
                 </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {destPackages.map((pkg, idx) => (
-                    <div 
+                <p className="text-muted-foreground">
+                  {filteredPackages.length === 0
+                    ? "No packages match your filters. Try adjusting your search criteria."
+                    : `Showing ${filteredPackages.length} package${filteredPackages.length !== 1 ? "s" : ""}`}
+                </p>
+              </div>
+
+              {filteredPackages.length === 0 ? (
+                <div className="text-center py-16">
+                  <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground">No packages found matching your criteria</p>
+                </div>
+              ) : (
+                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                  {filteredPackages.map((pkg, idx) => (
+                    <div
                       key={idx}
-                      className="bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all hover:shadow-lg flex flex-col h-full"
+                      className="bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all hover:shadow-lg flex flex-col h-full relative"
                     >
+                      {/* Badges */}
+                      {(pkg.isPopular || pkg.discount) && (
+                        <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
+                          {pkg.isPopular && (
+                            <Badge className="bg-amber-500 hover:bg-amber-600 gap-1">
+                              <Trophy className="h-3 w-3" />
+                              Most Popular
+                            </Badge>
+                          )}
+                          {pkg.discount && (
+                            <Badge className="bg-red-500 hover:bg-red-600 gap-1">
+                              <Flame className="h-3 w-3" />
+                              Save {pkg.discount}%
+                            </Badge>
+                          )}
+                          {pkg.spotsRemaining <= 3 && (
+                            <Badge className="bg-orange-500 hover:bg-orange-600 gap-1">
+                              <AlertCircle className="h-3 w-3" />
+                              Only {pkg.spotsRemaining} left
+                            </Badge>
+                          )}
+                        </div>
+                      )}
+
                       {/* Image */}
                       <div className="relative h-48 w-full overflow-hidden">
                         <Image
@@ -410,27 +759,55 @@ export default function TourPackagesPage() {
 
                       {/* Content */}
                       <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-semibold text-foreground mb-3">
-                          {pkg.title}
-                        </h3>
+                        {/* Title */}
+                        <h3 className="text-xl font-semibold text-foreground mb-2">{pkg.title}</h3>
 
-                        {/* Duration */}
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                          <Clock className="h-4 w-4 text-accent" />
-                          {pkg.duration}
+                        {/* Quick Facts */}
+                        <div className="grid grid-cols-2 gap-2 mb-4">
+                          <div className="flex items-center gap-2">
+                            <Calendar className="h-4 w-4 text-accent" />
+                            <span className="text-xs text-muted-foreground">{pkg.season}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Users className="h-4 w-4 text-accent" />
+                            <span className="text-xs text-muted-foreground">{pkg.groupSize}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Clock className="h-4 w-4 text-accent" />
+                            <span className="text-xs text-muted-foreground">{pkg.duration}</span>
+                          </div>
+                          <div>
+                            <Badge variant="outline" className={`text-xs ${getDifficultyColor(pkg.difficulty)}`}>
+                              {pkg.difficulty}
+                            </Badge>
+                          </div>
+                        </div>
+
+                        {/* Travel Types */}
+                        <div className="flex gap-2 mb-4 flex-wrap">
+                          {pkg.travelTypes.map((type) => (
+                            <Badge key={type} variant="secondary" className="text-xs">
+                              {getActivityIcon(type)} {type}
+                            </Badge>
+                          ))}
                         </div>
 
                         {/* Price */}
-                        <div className="mb-4">
-                          <span className="text-3xl font-bold text-accent">{pkg.price}</span>
-                          <span className="text-sm text-muted-foreground ml-2">per person</span>
+                        <div className="mb-4 pb-4 border-b border-border">
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-3xl font-bold text-accent">₹{pkg.price.toLocaleString()}</span>
+                            <span className="text-sm text-muted-foreground">per person</span>
+                          </div>
+                          {pkg.discount && (
+                            <p className="text-xs text-green-600 mt-1">Early bird discount: Save ₹{Math.round((pkg.price * pkg.discount) / 100)}</p>
+                          )}
                         </div>
 
                         {/* Highlights */}
                         <div className="mb-4">
                           <p className="text-sm font-semibold text-foreground mb-2">Highlights:</p>
                           <ul className="space-y-1">
-                            {pkg.highlights.map((highlight, i) => (
+                            {pkg.highlights.slice(0, 3).map((highlight, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
                                 <CheckCircle className="h-3 w-3 text-accent shrink-0 mt-0.5" />
                                 <span>{highlight}</span>
@@ -439,29 +816,33 @@ export default function TourPackagesPage() {
                           </ul>
                         </div>
 
-                        {/* Inclusions */}
-                        <div className="mb-6 flex-grow">
-                          <p className="text-sm font-semibold text-foreground mb-2">Includes:</p>
-                          <ul className="space-y-1">
-                            {pkg.inclusions.map((inclusion, i) => (
-                              <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                <CheckCircle className="h-3 w-3 text-accent shrink-0 mt-0.5" />
-                                <span>{inclusion}</span>
-                              </li>
+                        {/* Expandable Itinerary */}
+                        <Collapsible className="mb-4">
+                          <CollapsibleTrigger className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent transition-colors">
+                            <ChevronDown className="h-4 w-4" />
+                            Day-by-Day Itinerary
+                          </CollapsibleTrigger>
+                          <CollapsibleContent className="mt-3 space-y-2">
+                            {pkg.itinerary.map((item) => (
+                              <div key={item.day} className="text-xs text-muted-foreground bg-background/50 rounded p-2">
+                                <span className="font-semibold text-foreground">Day {item.day}:</span> {item.activity}
+                              </div>
                             ))}
-                          </ul>
-                        </div>
+                          </CollapsibleContent>
+                        </Collapsible>
 
                         {/* CTA */}
                         <Button className="w-full" asChild>
-                          <Link href="#contact" onClick={() => window.scrollTo(0, document.body.scrollHeight)}>Inquire Now</Link>
+                          <Link href="#contact" onClick={() => window.scrollTo(0, document.body.scrollHeight)}>
+                            Inquire Now
+                          </Link>
                         </Button>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
-            ))}
+              )}
+            </div>
           </div>
         </div>
       </section>
