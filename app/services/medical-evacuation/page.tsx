@@ -93,11 +93,11 @@ export default function MedicalEvacuationPage() {
                       <p className="text-foreground font-medium">+91-11-40154725</p>
                     </div>
                   </a>
-                  <a href="mailto:insighttravels95@gmail.com" className="flex items-center gap-3 p-3 bg-background rounded-lg hover:bg-accent/10 transition-colors">
+                  <a href="mailto:outbound@insighttravels.in" className="flex items-center gap-3 p-3 bg-background rounded-lg hover:bg-accent/10 transition-colors">
                     <Mail className="h-5 w-5 text-accent" />
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="text-foreground font-medium">insighttravels95@gmail.com</p>
+                      <p className="text-foreground font-medium">outbound@insighttravels.in</p>
                     </div>
                   </a>
                 </div>

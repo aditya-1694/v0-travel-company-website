@@ -1,24 +1,88 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Award } from "lucide-react"
 
 export function HeroSection() {
+  const images = [
+    "/images/carousel-leisure.jpg",
+    "/images/carousel-corporate.jpg",
+    "/images/carousel-events.jpg",
+    "/images/carousel-adventure.jpg",
+    "/images/carousel-luxury.jpg",
+  ]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [progress, setProgress] = useState(0)
+
+  // Auto-advance carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+      setProgress(0)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [images.length])
+
+  // Progress bar animation
+  useEffect(() => {
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 100
+        return prev + (100 / 50) // 50 updates over 5 seconds = smooth animation
+      })
+    }, 100)
+
+    return () => clearInterval(progressInterval)
+  }, [currentIndex])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src="/images/hero-travel.jpg"
-        alt="Corporate travel"
-        fill
-        className="object-cover"
-        priority
-      />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90" />
-      
+      {/* Carousel Container */}
+      <div className="absolute inset-0">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={image}
+              alt={`Travel carousel image ${index + 1}`}
+              fill
+              className="object-cover"
+              priority={index === 0}
+            />
+          </div>
+        ))}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+
+      {/* Progress Bars */}
+      <div className="absolute top-24 left-0 right-0 z-20 flex gap-2 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className="h-1 flex-1 bg-white/30 rounded-full overflow-hidden"
+          >
+            <div
+              className="h-full bg-white rounded-full transition-all"
+              style={{
+                width: index === currentIndex ? `${progress}%` : index < currentIndex ? "100%" : "0%",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-foreground/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-foreground/5 rounded-full blur-3xl" />
       </div>

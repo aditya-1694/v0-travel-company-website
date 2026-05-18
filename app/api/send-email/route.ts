@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         from: "onboarding@resend.dev",
-        to: "insighttravels95@gmail.com",
+        to: "outbound@insighttravels.in",
         reply_to: email,
         subject: `New Contact Form Submission from ${name}`,
         html: `
