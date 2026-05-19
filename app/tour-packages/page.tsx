@@ -708,7 +708,7 @@ export default function TourPackagesPage() {
             </div>
 
             {/* Packages Grid */}
-            <div className="flex-1 w-full"
+            <div className="flex-1 w-full">
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-2">
                   Available Packages ({filteredPackages.length})
