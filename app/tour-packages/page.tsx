@@ -3,12 +3,11 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Clock, CheckCircle, Flame, Trophy, AlertCircle, Users, Calendar, Zap, ChevronDown } from "lucide-react"
+import { Clock, CheckCircle, Flame, Trophy, AlertCircle, Users, Calendar, Zap, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { TourSearchHero } from "@/components/tour-search-hero"
 import { TourFilterSidebar, type FilterState } from "@/components/tour-filter-sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 
@@ -39,6 +38,7 @@ export default function TourPackagesPage() {
     travelTypes: [],
     seasons: [],
   })
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
 
   const packages: Package[] = [
     // Australia
@@ -685,20 +685,30 @@ export default function TourPackagesPage() {
     <div className="min-h-screen">
       <Header />
 
-      {/* Hero Search */}
-      <TourSearchHero onSearch={() => {}} />
-
       {/* Main Content */}
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Mobile Filter Toggle */}
+          <div className="lg:hidden mb-6 flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
+              className="gap-2"
+            >
+              {mobileFilterOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              {mobileFilterOpen ? "Hide" : "Show"} Filters
+            </Button>
+          </div>
+
           <div className="flex gap-8">
-            {/* Sidebar */}
-            <div className="hidden lg:block flex-shrink-0">
+            {/* Sidebar - Desktop & Mobile */}
+            <div className={`${mobileFilterOpen ? "block" : "hidden"} lg:block lg:flex-shrink-0 w-full lg:w-auto`}>
               <TourFilterSidebar filters={filters} onFiltersChange={setFilters} />
             </div>
 
             {/* Packages Grid */}
-            <div className="flex-1">
+            <div className="flex-1 w-full"
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-2">
                   Available Packages ({filteredPackages.length})
