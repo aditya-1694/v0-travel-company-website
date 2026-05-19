@@ -686,7 +686,7 @@ export default function TourPackagesPage() {
       <Header />
 
       {/* Main Content */}
-      <section className="py-20 bg-background">
+      <section className="bg-background pt-24 pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Mobile Filter Toggle */}
           <div className="lg:hidden mb-6 flex items-center gap-2">
