@@ -4,7 +4,7 @@ export function StatsSection() {
   const stats = [
     {
       icon: Award,
-      number: "30+",
+      number: "32",
       label: "Years of Excellence",
       description: "Serving clients since 1994"
     },
@@ -16,9 +16,9 @@ export function StatsSection() {
     },
     {
       icon: MapPin,
-      number: "50+",
-      label: "Destinations",
-      description: "Worldwide coverage"
+      number: "30+",
+      label: "Destinations Worldwide",
+      description: "Global coverage & expertise"
     },
     {
       icon: TrendingUp,

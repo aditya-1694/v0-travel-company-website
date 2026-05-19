@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { FeaturedPackagesSection } from "@/components/featured-packages-section"
 import { AboutSection } from "@/components/about-section"
 import { StatsSection } from "@/components/stats-section"
 import { ServicesSection } from "@/components/services-section"
@@ -13,7 +12,6 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <HeroSection />
-      <FeaturedPackagesSection />
       <AboutSection />
       <StatsSection />
       <ServicesSection />
