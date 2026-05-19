@@ -3,13 +3,12 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Clock, CheckCircle, Flame, Trophy, AlertCircle, Users, Calendar, Zap, ChevronDown, Menu, X } from "lucide-react"
+import { Clock, CheckCircle, Flame, Trophy, AlertCircle, Users, Calendar, Zap, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { TourFilterSidebar, type FilterState } from "@/components/tour-filter-sidebar"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 
 interface Package {
   destination: string
@@ -825,21 +824,6 @@ export default function TourPackagesPage() {
                             ))}
                           </ul>
                         </div>
-
-                        {/* Expandable Itinerary */}
-                        <Collapsible className="mb-4">
-                          <CollapsibleTrigger className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent transition-colors">
-                            <ChevronDown className="h-4 w-4" />
-                            Day-by-Day Itinerary
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="mt-3 space-y-2">
-                            {pkg.itinerary.map((item) => (
-                              <div key={item.day} className="text-xs text-muted-foreground bg-background/50 rounded p-2">
-                                <span className="font-semibold text-foreground">Day {item.day}:</span> {item.activity}
-                              </div>
-                            ))}
-                          </CollapsibleContent>
-                        </Collapsible>
 
                         {/* CTA */}
                         <Button className="w-full" asChild>
