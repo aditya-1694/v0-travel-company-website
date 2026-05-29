@@ -22,7 +22,7 @@ export function Header() {
     { name: "Medical Evacuation", href: "/services/medical-evacuation" },
     { name: "Corporate Travel", href: "/services/corporate-travel" },
     { name: "MICE & Events", href: "/services/mice-events" },
-    { name: "Leisure Travel & Tourism", href: "/tour-packages" },
+    { name: "Tour Packages", href: "/tour-packages" },
   ]
 
   return (

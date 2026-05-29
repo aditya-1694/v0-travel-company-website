@@ -46,7 +46,7 @@ export function ServicesSection() {
     {
       icon: MapPin,
       number: "04",
-      title: "Leisure Travel & Tourism",
+      title: "Tour Packages",
       description: "Customized family vacations, group tours, and FIT packages designed for your preferences.",
       link: "/tour-packages",
       features: [
