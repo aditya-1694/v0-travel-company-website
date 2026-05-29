@@ -12,6 +12,7 @@ import { TourFilterSidebar, type FilterState } from "@/components/tour-filter-si
 
 interface Package {
   destination: string
+  country: string
   image: string
   title: string
   duration: string
@@ -43,6 +44,7 @@ export default function TourPackagesPage() {
     // Australia
     {
       destination: "Australia",
+      country: "Australia",
       image: "/images/package-sydney-reef.jpg",
       title: "Sydney & Great Barrier Reef",
       duration: "8 Days / 7 Nights",
@@ -85,6 +87,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Australia",
+      country: "Australia",
       image: "/images/package-wine-valley.jpg",
       title: "Melbourne & Adelaide Wine Tour",
       duration: "7 Days / 6 Nights",
@@ -126,6 +129,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Australia",
+      country: "Australia",
       image: "/images/package-uluru.jpg",
       title: "Uluru Red Centre Adventure",
       duration: "6 Days / 5 Nights",
@@ -167,6 +171,7 @@ export default function TourPackagesPage() {
     // Bali
     {
       destination: "Bali",
+      country: "Indonesia",
       image: "/images/package-bali-beach.jpg",
       title: "Bali Beach Paradise",
       duration: "5 Days / 4 Nights",
@@ -206,6 +211,7 @@ export default function TourPackagesPage() {
     },
     {
       destination: "Bali",
+      country: "Indonesia",
       image: "/images/package-mount-batur.jpg",
       title: "Adventure & Culture Week",
       duration: "7 Days / 6 Nights",
@@ -533,7 +539,8 @@ export default function TourPackagesPage() {
     // Singapore
     {
       destination: "Singapore",
-      image: "/images/package-singapore-marina.jpg",
+      country: "Singapore",
+      image: "/images/package-singapore-city.jpg",
       title: "Singapore City Explorer",
       duration: "4 Days / 3 Nights",
       durationDays: 4,
@@ -764,6 +771,12 @@ export default function TourPackagesPage() {
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
+                        {/* Country Badge */}
+                        <div className="absolute top-3 left-3">
+                          <Badge className="bg-blue-600 hover:bg-blue-700 text-white">
+                            {pkg.country}
+                          </Badge>
+                        </div>
                       </div>
 
                       {/* Content */}
@@ -785,11 +798,6 @@ export default function TourPackagesPage() {
                             <Clock className="h-4 w-4 text-accent" />
                             <span className="text-xs text-muted-foreground">{pkg.duration}</span>
                           </div>
-                          <div>
-                            <Badge variant="outline" className={`text-xs ${getDifficultyColor(pkg.difficulty)}`}>
-                              {pkg.difficulty}
-                            </Badge>
-                          </div>
                         </div>
 
                         {/* Travel Types */}
@@ -803,6 +811,9 @@ export default function TourPackagesPage() {
 
                         {/* Price */}
                         <div className="mb-4 pb-4 border-b border-border">
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-sm text-muted-foreground">Starting from</span>
+                          </div>
                           <div className="flex items-baseline gap-2">
                             <span className="text-3xl font-bold text-accent">₹{pkg.price.toLocaleString()}</span>
                             <span className="text-sm text-muted-foreground">per person</span>
@@ -838,6 +849,13 @@ export default function TourPackagesPage() {
               )}
             </div>
           </div>
+        </div>
+
+        {/* Coming Soon Section */}
+        <div className="mt-20 py-12 px-6 bg-accent/5 rounded-2xl border border-accent/20 text-center max-w-2xl mx-auto">
+          <Zap className="h-8 w-8 text-accent mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-foreground mb-2">New Destinations Launching Soon</h3>
+          <p className="text-muted-foreground">We're curating exciting new destinations. Stay tuned for expanded tour packages coming your way!</p>
         </div>
       </section>
 
