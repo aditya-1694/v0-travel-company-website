@@ -37,21 +37,17 @@ export function AboutSection() {
           <div>
             <span className="text-sm font-semibold text-accent uppercase tracking-widest">About Us</span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight text-balance">
-              A Legacy of Trusted Travel Management
+              Your Travel Companion Since 1994
             </h2>
             <div className="mt-8 space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Founded in 1994, Insight Travels and Tours began with a simple vision: 
-                to simplify the travel needs of businesses so they can focus on what matters most — growth.
+                We believe travel should be joyful, not stressful. For over 30 years, Insight Travels has been making that possible by handling the logistics while you embrace the adventure.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                As a family-owned enterprise, we bring personal attention and care to every client relationship. 
-                Our IATA certification reflects our commitment to maintaining the highest industry standards 
-                and providing reliable, trustworthy service.
+                What started as a family passion has grown into a trusted partner for thousands of travelers. Whether you're planning a dream vacation, organizing a corporate retreat, or managing complex multi-destination events, we've got you covered.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Over three decades, we&apos;ve built lasting partnerships with corporations across industries, 
-                becoming their go-to resource for all travel and event management needs.
+                Our IATA certification and decades of expertise mean you're in safe hands. But more importantly, our personal touch and genuine care ensure every trip becomes a cherished memory.
               </p>
             </div>
 

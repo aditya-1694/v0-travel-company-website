@@ -1,9 +1,11 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { AboutSection } from "@/components/about-section"
-import { StatsSection } from "@/components/stats-section"
+import { HowWeWorkSection } from "@/components/how-we-work-section"
 import { ServicesSection } from "@/components/services-section"
-import { ClientsSection } from "@/components/clients-section"
+import { TravelMomentsSection } from "@/components/travel-moments-section"
+import { StatsSection } from "@/components/stats-section"
+import { AboutSection } from "@/components/about-section"
+import { ExploreCTASection } from "@/components/explore-cta-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
@@ -12,10 +14,12 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <HeroSection />
-      <AboutSection />
-      <StatsSection />
+      <HowWeWorkSection />
       <ServicesSection />
-      <ClientsSection />
+      <TravelMomentsSection />
+      <StatsSection />
+      <AboutSection />
+      <ExploreCTASection />
       <ContactSection />
       <Footer />
     </main>
